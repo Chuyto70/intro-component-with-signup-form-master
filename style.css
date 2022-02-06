@@ -56,6 +56,7 @@ input {
     border: 1px solid var(--gray-blue);
     outline: none;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 .email-example::placeholder {
