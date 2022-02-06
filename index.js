@@ -1,8 +1,10 @@
 let form = [...document.querySelector('.form').children];
+let formId = document.getElementById('formId')
 let button = document.getElementById('claim-trial')
 let message = document.querySelector('.message-error')
 let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 let verify = 0;
+let person = {}
 
 button.addEventListener('click', () => {
 
@@ -36,6 +38,9 @@ button.addEventListener('click', () => {
                     form[i].children[1].style.display = "block"
                     form[i].children[0].style.border = "1px solid var(--red)"
                 } else {
+
+                    person[form[i].children[0].getAttribute('name')] = form[i].firstElementChild.value;
+                    form[i].firstElementChild.setAttribute("placeholder", "")
                     form[i].children[1].style.display = "none"
                     form[i].children[0].style.border = "1px solid var(--gray-blue)"
                 }
@@ -43,12 +48,16 @@ button.addEventListener('click', () => {
                 form[i].classList.remove('error')
                 form[i].children[1].style.display = "none"
                 form[i].children[0].style.border = "1px solid var(--gray-blue)"
-
+                person[form[i].children[0].getAttribute('name')] = form[i].firstElementChild.value;
 
             }
 
         }
 
+        if (person.email && person.fristName && person.password && person.lastName) {
+            formId.reset()
+            alert(`Thanks ${person.fristName} for try the trial!!!`)
+        }
     }
 
 })
