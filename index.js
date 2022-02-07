@@ -57,6 +57,7 @@ button.addEventListener('click', () => {
         if (person.email && person.fristName && person.password && person.lastName) {
             formId.reset()
             alert(`Thanks ${person.fristName} for try the trial!!!`)
+            window.location.reload()
         }
     }
 

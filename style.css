@@ -125,7 +125,7 @@ main {
 
 /* Header content*/
 
-header h1 {
+.header h1 {
     font-size: 44px;
     font-weight: 700;
 }
